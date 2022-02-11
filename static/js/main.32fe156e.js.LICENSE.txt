@@ -1,0 +1,1594 @@
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/*!
+                      * Copyright (c) 2022 Payoneer Germany GmbH. All rights reserved.
+                      */
+
+/*!
+   * Sizzle CSS Selector Engine v2.3.6
+   * https://sizzlejs.com/
+   *
+   * Copyright JS Foundation and other contributors
+   * Released under the MIT license
+   * https://js.foundation/
+   *
+   * Date: 2021-02-16
+   */
+
+/*!
+ * jQuery JavaScript Library v3.6.0
+ * https://jquery.com/
+ *
+ * Includes Sizzle.js
+ * https://sizzlejs.com/
+ *
+ * Copyright OpenJS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
+ *
+ * Date: 2021-03-02T17:08Z
+ */
+
+/*! exports provided: API */
+
+/*! exports provided: API_VERSION, Hub, getMainCarrier, makeMain, getCurrentHub, getActiveDomain, getHubFromCarrier, setHubOnCarrier */
+
+/*! exports provided: BaseBackend */
+
+/*! exports provided: BaseClient */
+
+/*! exports provided: BaseTransport */
+
+/*! exports provided: BaseTransport, FetchTransport, XHRTransport */
+
+/*! exports provided: Breadcrumbs */
+
+/*! exports provided: BrowserBackend */
+
+/*! exports provided: BrowserClient */
+
+/*! exports provided: Dsn */
+
+/*! exports provided: FetchTransport */
+
+/*! exports provided: FunctionToString */
+
+/*! exports provided: FunctionToString, InboundFilters */
+
+/*! exports provided: GlobalHandlers */
+
+/*! exports provided: GlobalHandlers, TryCatch, Breadcrumbs, LinkedErrors, UserAgent */
+
+/*! exports provided: InboundFilters */
+
+/*! exports provided: LinkedErrors */
+
+/*! exports provided: LogLevel */
+
+/*! exports provided: LogLevel, SessionStatus, RequestSessionStatus, Severity, Status, TransactionSamplingMethod */
+
+/*! exports provided: Memo */
+
+/*! exports provided: NoopTransport */
+
+/*! exports provided: PromiseBuffer */
+
+/*! exports provided: SDK_NAME */
+
+/*! exports provided: SDK_VERSION */
+
+/*! exports provided: Scope, addGlobalEventProcessor */
+
+/*! exports provided: SentryError */
+
+/*! exports provided: Session, SessionFlusher */
+
+/*! exports provided: SessionStatus, RequestSessionStatus */
+
+/*! exports provided: Severity */
+
+/*! exports provided: Severity, Status, addGlobalEventProcessor, addBreadcrumb, captureException, captureEvent, captureMessage, configureScope, getHubFromCarrier, getCurrentHub, Hub, makeMain, Scope, startTransaction, SDK_VERSION, setContext, setExtra, setExtras, setTag, setTags, setUser, withScope, BrowserClient, injectReportDialog, eventFromException, eventFromMessage, defaultIntegrations, forceLoad, init, lastEventId, onLoad, showReportDialog, flush, close, wrap, SDK_NAME */
+
+/*! exports provided: Severity, Status, addGlobalEventProcessor, addBreadcrumb, captureException, captureEvent, captureMessage, configureScope, getHubFromCarrier, getCurrentHub, Hub, makeMain, Scope, startTransaction, SDK_VERSION, setContext, setExtra, setExtras, setTag, setTags, setUser, withScope, BrowserClient, injectReportDialog, eventFromException, eventFromMessage, defaultIntegrations, forceLoad, init, lastEventId, onLoad, showReportDialog, flush, close, wrap, SDK_NAME, Integrations, Transports */
+
+/*! exports provided: Status */
+
+/*! exports provided: SyncPromise */
+
+/*! exports provided: TransactionSamplingMethod */
+
+/*! exports provided: TryCatch */
+
+/*! exports provided: UserAgent */
+
+/*! exports provided: VERSION, restArguments, isObject, isNull, isUndefined, isBoolean, isElement, isString, isNumber, isDate, isRegExp, isError, isSymbol, isArrayBuffer, isDataView, isArray, isFunction, isArguments, isFinite, isNaN, isTypedArray, isEmpty, isMatch, isEqual, isMap, isWeakMap, isSet, isWeakSet, keys, allKeys, values, pairs, invert, functions, methods, extend, extendOwn, assign, defaults, create, clone, tap, get, has, mapObject, identity, constant, noop, toPath, property, propertyOf, matcher, matches, times, random, now, escape, unescape, templateSettings, template, result, uniqueId, chain, iteratee, partial, bind, bindAll, memoize, delay, defer, throttle, debounce, wrap, negate, compose, after, before, once, findKey, findIndex, findLastIndex, sortedIndex, indexOf, lastIndexOf, find, detect, findWhere, each, forEach, map, collect, reduce, foldl, inject, reduceRight, foldr, filter, select, reject, every, all, some, any, contains, includes, include, invoke, pluck, where, max, min, shuffle, sample, sortBy, groupBy, indexBy, countBy, partition, toArray, size, pick, omit, first, head, take, initial, last, rest, tail, drop, compact, flatten, without, uniq, unique, union, intersection, difference, unzip, transpose, zip, object, range, chunk, mixin, default */
+
+/*! exports provided: VERSION, root, ArrayProto, ObjProto, SymbolProto, push, slice, toString, hasOwnProperty, supportsArrayBuffer, supportsDataView, nativeIsArray, nativeKeys, nativeCreate, nativeIsView, _isNaN, _isFinite, hasEnumBug, nonEnumerableProps, MAX_ARRAY_INDEX */
+
+/*! exports provided: XHRTransport */
+
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
+
+/*! exports provided: addBreadcrumb, captureException, captureEvent, captureMessage, configureScope, startTransaction, setContext, setExtra, setExtras, setTag, setTags, setUser, withScope, addGlobalEventProcessor, getCurrentHub, getHubFromCarrier, Hub, makeMain, Scope, API, BaseClient, BaseBackend, eventToSentryRequest, sessionToSentryRequest, initAndBind, NoopTransport, SDK_VERSION, Integrations */
+
+/*! exports provided: addGlobalEventProcessor, Scope, Session, SessionFlusher, getActiveDomain, getCurrentHub, getHubFromCarrier, getMainCarrier, Hub, makeMain, setHubOnCarrier */
+
+/*! exports provided: addInstrumentationHandler */
+
+/*! exports provided: captureException, captureMessage, captureEvent, configureScope, addBreadcrumb, setContext, setExtras, setTags, setExtra, setTag, setUser, withScope, _callOnClient, startTransaction */
+
+/*! exports provided: computeStackTrace */
+
+/*! exports provided: dateTimestampInSeconds, timestampInSeconds, timestampWithMs, usingPerformanceAPI, _browserPerformanceTimeOriginMode, browserPerformanceTimeOrigin */
+
+/*! exports provided: default */
+
+/*! exports provided: default, VERSION, restArguments, isObject, isNull, isUndefined, isBoolean, isElement, isString, isNumber, isDate, isRegExp, isError, isSymbol, isArrayBuffer, isDataView, isArray, isFunction, isArguments, isFinite, isNaN, isTypedArray, isEmpty, isMatch, isEqual, isMap, isWeakMap, isSet, isWeakSet, keys, allKeys, values, pairs, invert, functions, methods, extend, extendOwn, assign, defaults, create, clone, tap, get, has, mapObject, identity, constant, noop, toPath, property, propertyOf, matcher, matches, times, random, now, escape, unescape, templateSettings, template, result, uniqueId, chain, iteratee, partial, bind, bindAll, memoize, delay, defer, throttle, debounce, wrap, negate, compose, after, before, once, findKey, findIndex, findLastIndex, sortedIndex, indexOf, lastIndexOf, find, detect, findWhere, each, forEach, map, collect, reduce, foldl, inject, reduceRight, foldr, filter, select, reject, every, all, some, any, contains, includes, include, invoke, pluck, where, max, min, shuffle, sample, sortBy, groupBy, indexBy, countBy, partition, toArray, size, pick, omit, first, head, take, initial, last, rest, tail, drop, compact, flatten, without, uniq, unique, union, intersection, difference, unzip, transpose, zip, object, range, chunk, mixin */
+
+/*! exports provided: defaultIntegrations, init, showReportDialog, lastEventId, forceLoad, onLoad, flush, close, wrap */
+
+/*! exports provided: eventFromException, eventFromMessage, eventFromUnknownInput, eventFromString */
+
+/*! exports provided: exceptionFromStacktrace, eventFromPlainObject, eventFromStacktrace, prepareFramesForEvent */
+
+/*! exports provided: fill, urlEncode, normalizeToSize, walk, normalize, extractExceptionKeysForMessage, dropUndefinedKeys */
+
+/*! exports provided: forget */
+
+/*! exports provided: forget, htmlTreeAsString, Dsn, SentryError, addInstrumentationHandler, isError, isErrorEvent, isDOMError, isDOMException, isString, isPrimitive, isPlainObject, isEvent, isElement, isRegExp, isThenable, isSyntheticEvent, isInstanceOf, logger, Memo, getGlobalObject, uuid4, parseUrl, getEventDescription, consoleSandbox, addExceptionTypeValue, addExceptionMechanism, getLocationHref, parseSemver, parseRetryAfterHeader, addContextToFrame, stripUrlQueryAndFragment, isNodeEnv, dynamicRequire, loadModule, fill, urlEncode, normalizeToSize, walk, normalize, extractExceptionKeysForMessage, dropUndefinedKeys, resolve, relative, normalizePath, isAbsolute, join, dirname, basename, PromiseBuffer, getFunctionName, truncate, snipLine, safeJoin, isMatchingPattern, supportsErrorEvent, supportsDOMError, supportsDOMException, supportsFetch, isNativeFetch, supportsNativeFetch, supportsReportingObserver, supportsReferrerPolicy, supportsHistory, SyncPromise, dateTimestampInSeconds, timestampInSeconds, timestampWithMs, usingPerformanceAPI, _browserPerformanceTimeOriginMode, browserPerformanceTimeOrigin */
+
+/*! exports provided: getFunctionName */
+
+/*! exports provided: getGlobalObject, uuid4, parseUrl, getEventDescription, consoleSandbox, addExceptionTypeValue, addExceptionMechanism, getLocationHref, parseSemver, parseRetryAfterHeader, addContextToFrame, stripUrlQueryAndFragment */
+
+/*! exports provided: hasStringTagBug, isIE11 */
+
+/*! exports provided: htmlTreeAsString */
+
+/*! exports provided: ie11fingerprint, mapMethods, weakMapMethods, setMethods */
+
+/*! exports provided: initAndBind */
+
+/*! exports provided: installedIntegrations, getIntegrationsToSetup, setupIntegration, setupIntegrations */
+
+/*! exports provided: isError, isErrorEvent, isDOMError, isDOMException, isString, isPrimitive, isPlainObject, isEvent, isElement, isRegExp, isThenable, isSyntheticEvent, isInstanceOf */
+
+/*! exports provided: isNodeEnv, dynamicRequire, loadModule */
+
+/*! exports provided: logger */
+
+/*! exports provided: networks.preset.title, networks.preset.text, default */
+
+/*! exports provided: resolve, relative, normalizePath, isAbsolute, join, dirname, basename */
+
+/*! exports provided: sessionToSentryRequest, eventToSentryRequest */
+
+/*! exports provided: setPrototypeOf */
+
+/*! exports provided: shouldIgnoreOnError, ignoreNextOnError, wrap, injectReportDialog */
+
+/*! exports provided: supportsErrorEvent, supportsDOMError, supportsDOMException, supportsFetch, isNativeFetch, supportsNativeFetch, supportsReportingObserver, supportsReferrerPolicy, supportsHistory */
+
+/*! exports provided: truncate, snipLine, safeJoin, isMatchingPattern */
+
+/*! no static exports found */
+
+/*!*************************!*\
+        !*** external "jquery" ***!
+        \*************************/
+
+/*!*****************************!*\
+        !*** ./src/vendors/jstz.js ***!
+        \*****************************/
+
+/*!********************************!*\
+        !*** ./src/templates/index.js ***!
+        \********************************/
+
+/*!**********************************!*\
+        !*** ./src/js/jquery-binding.js ***!
+        \**********************************/
+
+/*!**********************************!*\
+        !*** ./src/translations/de.json ***!
+        \**********************************/
+
+/*!**********************************!*\
+        !*** ./src/translations/en.json ***!
+        \**********************************/
+
+/*!***********************************!*\
+        !*** (webpack)/buildin/global.js ***!
+        \***********************************/
+
+/*!***********************************!*\
+        !*** (webpack)/buildin/module.js ***!
+        \***********************************/
+
+/*!***********************************!*\
+        !*** ./src/translations/index.js ***!
+        \***********************************/
+
+/*!*************************************!*\
+        !*** ./src/js/list/list-handler.js ***!
+        \*************************************/
+
+/*!*************************************!*\
+        !*** ./src/js/list/list-request.js ***!
+        \*************************************/
+
+/*!****************************************!*\
+        !*** ./src/js/op-payment-widget-v3.js ***!
+        \****************************************/
+
+/*!****************************************!*\
+        !*** ./src/js/services/dom.service.js ***!
+        \****************************************/
+
+/*!****************************************!*\
+        !*** ./src/vendors/jquery.inputfit.js ***!
+        \****************************************/
+
+/*!*****************************************!*\
+        !*** ./node_modules/process/browser.js ***!
+        \*****************************************/
+
+/*!*****************************************!*\
+        !*** ./node_modules/tslib/tslib.es6.js ***!
+        \*****************************************/
+
+/*!*****************************************!*\
+        !*** ./src/js/services/form.service.js ***!
+        \*****************************************/
+
+/*!******************************************!*\
+        !*** ./src/js/services/group.service.js ***!
+        \******************************************/
+
+/*!*******************************************!*\
+        !*** (webpack)/buildin/harmony-module.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./node_modules/escape-html/index.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./src/js/services/config.service.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./src/js/services/format.service.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./src/js/services/iframe.service.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./src/js/services/lightbox/index.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./src/js/services/lightbox/utils.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./src/js/services/sentry.service.js ***!
+        \*******************************************/
+
+/*!*******************************************!*\
+        !*** ./src/js/services/switch.service.js ***!
+        \*******************************************/
+
+/*!********************************************!*\
+        !*** ./node_modules/handlebars/runtime.js ***!
+        \********************************************/
+
+/*!********************************************!*\
+        !*** ./src/js/services/loading.service.js ***!
+        \********************************************/
+
+/*!********************************************!*\
+        !*** ./src/js/services/operate.service.js ***!
+        \********************************************/
+
+/*!*********************************************!*\
+        !*** ./node_modules/@sentry/hub/esm/hub.js ***!
+        \*********************************************/
+
+/*!*********************************************!*\
+        !*** ./src/js/services/accounts.service.js ***!
+        \*********************************************/
+
+/*!*********************************************!*\
+        !*** ./src/js/services/localize.service.js ***!
+        \*********************************************/
+
+/*!*********************************************!*\
+        !*** ./src/js/services/networks.service.js ***!
+        \*********************************************/
+
+/*!**********************************************!*\
+        !*** ./node_modules/@sentry/core/esm/api.js ***!
+        \**********************************************/
+
+/*!**********************************************!*\
+        !*** ./node_modules/@sentry/core/esm/sdk.js ***!
+        \**********************************************/
+
+/*!**********************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/is.js ***!
+        \**********************************************/
+
+/*!**********************************************!*\
+        !*** ./src/js/services/polyfills.service.js ***!
+        \**********************************************/
+
+/*!**********************************************!*\
+        !*** ./src/js/services/translate.service.js ***!
+        \**********************************************/
+
+/*!**********************************************!*\
+        !*** ./src/js/services/util/ajax-adapter.js ***!
+        \**********************************************/
+
+/*!**********************************************!*\
+        !*** ./src/js/services/util/common-utils.js ***!
+        \**********************************************/
+
+/*!***********************************************!*\
+        !*** ./node_modules/@sentry/hub/esm/index.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./node_modules/@sentry/hub/esm/scope.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/dsn.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./node_modules/querystring-es3/index.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./src/js/services/custom-css.service.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./src/js/services/operations.service.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./src/js/services/root-scope.service.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./src/js/services/util/operate-utils.js ***!
+        \***********************************************/
+
+/*!***********************************************!*\
+        !*** ./src/js/services/validation.service.js ***!
+        \***********************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/index.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/memo.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/misc.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/node.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/path.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/time.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/querystring-es3/decode.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/querystring-es3/encode.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/timers-browserify/main.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/_cb.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/get.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/has.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/map.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/max.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/min.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/now.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/tap.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./node_modules/underscore/modules/zip.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./src/js/services/payment-api.service.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./src/js/services/submit-button/index.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./src/js/services/submit-button/label.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./src/js/services/submit-button/style.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./src/js/services/util/global-message.js ***!
+        \************************************************/
+
+/*!************************************************!*\
+        !*** ./src/js/services/window-data.service.js ***!
+        \************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/sdk.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/@sentry/hub/esm/session.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/@sentry/types/esm/index.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/async.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/error.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/index.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/properties-parser/index.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/_has.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/bind.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/each.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/find.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/keys.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/last.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/noop.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/omit.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/once.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/pick.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/rest.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/size.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/some.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/uniq.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./node_modules/underscore/modules/wrap.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./src/js/services/browser-data.service.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./src/js/services/handle-error.service.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./src/js/services/list-details.service.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./src/js/services/smart-switch.service.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./src/js/services/util/special-buttons.js ***!
+        \*************************************************/
+
+/*!*************************************************!*\
+        !*** ./src/templates/default/header.handlebars ***!
+        \*************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/request.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/version.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/@sentry/types/esm/status.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/logger.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/object.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/string.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/after.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/chain.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/chunk.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/clone.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/defer.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/delay.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/every.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/first.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/index.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/isMap.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/isNaN.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/isSet.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/mixin.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/pairs.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/pluck.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/range.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/times.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/union.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/unzip.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./node_modules/underscore/modules/where.js ***!
+        \**************************************************/
+
+/*!**************************************************!*\
+        !*** ./src/js/services/presetAccount.service.js ***!
+        \**************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/index.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/@sentry/minimal/esm/index.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/@sentry/types/esm/session.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/browser.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/setimmediate/setImmediate.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/_group.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/_setup.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/before.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/create.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/escape.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/extend.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/filter.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/invert.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/invoke.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/isDate.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/isNull.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/negate.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/object.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/random.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/reduce.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/reject.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/result.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/sample.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/sortBy.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/toPath.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./node_modules/underscore/modules/values.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./src/js/services/masked-account.service.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./src/js/services/util/to-object-adapter.js ***!
+        \***************************************************/
+
+/*!***************************************************!*\
+        !*** ./src/templates/default/lightbox.handlebars ***!
+        \***************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/client.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/@sentry/types/esm/loglevel.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/@sentry/types/esm/severity.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/polyfill.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/supports.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/promise-polyfill/src/index.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/_toPath.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/allKeys.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/bindAll.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/compact.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/compose.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/countBy.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/findKey.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/flatten.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/groupBy.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/indexBy.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/indexOf.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/initial.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/isArray.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/isEmpty.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/isEqual.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/isError.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/isMatch.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/matcher.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/memoize.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/partial.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/shuffle.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/toArray.js ***!
+        \****************************************************/
+
+/*!****************************************************!*\
+        !*** ./node_modules/underscore/modules/without.js ***!
+        \****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/backend.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/exports.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/helpers.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/parsers.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/version.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/baseclient.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/_deepGet.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/_flatten.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/constant.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/contains.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/debounce.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/defaults.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/identity.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/isFinite.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/isNumber.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/isObject.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/isRegExp.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/isString.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/isSymbol.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/iteratee.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/property.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/template.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/throttle.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/unescape.js ***!
+        \*****************************************************/
+
+/*!*****************************************************!*\
+        !*** ./node_modules/underscore/modules/uniqueId.js ***!
+        \*****************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/tracekit.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/basebackend.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/integration.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/instrument.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/stacktrace.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/node-libs-browser/mock/empty.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/promise-polyfill/src/finally.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/_keyInObj.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/extendOwn.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/findIndex.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/findWhere.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/functions.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/index-all.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/isBoolean.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/isElement.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/isWeakMap.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/isWeakSet.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/mapObject.js ***!
+        \******************************************************/
+
+/*!******************************************************!*\
+        !*** ./node_modules/underscore/modules/partition.js ***!
+        \******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/@sentry/types/esm/transaction.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/syncpromise.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/_escapeMap.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/_getLength.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/_tagTester.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/difference.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/isDataView.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/isFunction.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/propertyOf.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./node_modules/underscore/modules/underscore.js ***!
+        \*******************************************************/
+
+/*!*******************************************************!*\
+        !*** ./src/js/services/placeholder-switch.service.js ***!
+        \*******************************************************/
+
+/*!********************************************************!*\
+        !*** ./node_modules/underscore/modules/_baseCreate.js ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./node_modules/underscore/modules/_optimizeCb.js ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./node_modules/underscore/modules/isArguments.js ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./node_modules/underscore/modules/isUndefined.js ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./node_modules/underscore/modules/lastIndexOf.js ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./node_modules/underscore/modules/reduceRight.js ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./node_modules/underscore/modules/sortedIndex.js ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./src/templates/default/network_error.handlebars ***!
+        \********************************************************/
+
+/*!********************************************************!*\
+        !*** ./src/templates/default/preset_header.handlebars ***!
+        \********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./node_modules/@sentry/utils/esm/promisebuffer.js ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./node_modules/promise-polyfill/src/allSettled.js ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./node_modules/underscore/modules/_chainResult.js ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./node_modules/underscore/modules/_isArrayLike.js ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./node_modules/underscore/modules/_unescapeMap.js ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./node_modules/underscore/modules/intersection.js ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./node_modules/underscore/modules/isTypedArray.js ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./src/templates/default/confirm_delete.handlebars ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./src/templates/default/network_single.handlebars ***!
+        \*********************************************************/
+
+/*!*********************************************************!*\
+        !*** ./src/templates/default/preset_account.handlebars ***!
+        \*********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/eventbuilder.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/transports/noop.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/_baseIteratee.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/_createReduce.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/_executeBound.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/_hasObjectTag.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/_isBufferLike.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/_stringTagBug.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/_toBufferView.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/findLastIndex.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/index-default.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/isArrayBuffer.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./node_modules/underscore/modules/restArguments.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./src/js/services/network-event-manager.service.js ***!
+        \**********************************************************/
+
+/*!**********************************************************!*\
+        !*** ./src/js/services/payment-option-layout.service.js ***!
+        \**********************************************************/
+
+/*!***********************************************************!*\
+        !*** ./node_modules/underscore/modules/_createEscaper.js ***!
+        \***********************************************************/
+
+/*!***********************************************************!*\
+        !*** ./node_modules/underscore/modules/_getByteLength.js ***!
+        \***********************************************************/
+
+/*!************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/transports/xhr.js ***!
+        \************************************************************/
+
+/*!************************************************************!*\
+        !*** ./node_modules/underscore/modules/_createAssigner.js ***!
+        \************************************************************/
+
+/*!************************************************************!*\
+        !*** ./src/templates/standalone/network_single.handlebars ***!
+        \************************************************************/
+
+/*!************************************************************!*\
+        !*** ./src/templates/standalone/preset_account.handlebars ***!
+        \************************************************************/
+
+/*!*************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/transports/base.js ***!
+        \*************************************************************/
+
+/*!*************************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/integrations/index.js ***!
+        \*************************************************************/
+
+/*!*************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/base.js ***!
+        \*************************************************************/
+
+/*!*************************************************************!*\
+        !*** ./node_modules/underscore/modules/_shallowProperty.js ***!
+        \*************************************************************/
+
+/*!*************************************************************!*\
+        !*** ./node_modules/underscore/modules/templateSettings.js ***!
+        \*************************************************************/
+
+/*!*************************************************************!*\
+        !*** ./src/templates/default/registered_account.handlebars ***!
+        \*************************************************************/
+
+/*!**************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/transports/fetch.js ***!
+        \**************************************************************/
+
+/*!**************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/transports/index.js ***!
+        \**************************************************************/
+
+/*!**************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/utils.js ***!
+        \**************************************************************/
+
+/*!***************************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+        \***************************************************************/
+
+/*!***************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/logger.js ***!
+        \***************************************************************/
+
+/*!***************************************************************!*\
+        !*** ./node_modules/underscore/modules/_createIndexFinder.js ***!
+        \***************************************************************/
+
+/*!***************************************************************!*\
+        !*** ./node_modules/underscore/modules/_methodFingerprint.js ***!
+        \***************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/integrations/index.js ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars.runtime.js ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers.js ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/runtime.js ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./node_modules/vanilla-text-mask/dist/vanillaTextMask.js ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./src/templates/default/network_grouped_smart.handlebars ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./src/templates/default/preset_account_hidden.handlebars ***!
+        \****************************************************************/
+
+/*!****************************************************************!*\
+        !*** ./src/templates/standalone/registered_account.handlebars ***!
+        \****************************************************************/
+
+/*!*****************************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+        \*****************************************************************/
+
+/*!*****************************************************************!*\
+        !*** ./node_modules/underscore/modules/_collectNonEnumProps.js ***!
+        \*****************************************************************/
+
+/*!******************************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+        \******************************************************************/
+
+/*!******************************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+        \******************************************************************/
+
+/*!******************************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+        \******************************************************************/
+
+/*!******************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/exception.js ***!
+        \******************************************************************/
+
+/*!******************************************************************!*\
+        !*** ./node_modules/op-identify-card/src/js/op-identify-card.js ***!
+        \******************************************************************/
+
+/*!******************************************************************!*\
+        !*** ./node_modules/string.prototype.codepointat/codepointat.js ***!
+        \******************************************************************/
+
+/*!*******************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/integrations/trycatch.js ***!
+        \*******************************************************************/
+
+/*!*******************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/decorators.js ***!
+        \*******************************************************************/
+
+/*!*******************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers/if.js ***!
+        \*******************************************************************/
+
+/*!*******************************************************************!*\
+        !*** ./src/templates/standalone/network_grouped_smart.handlebars ***!
+        \*******************************************************************/
+
+/*!********************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/integrations/useragent.js ***!
+        \********************************************************************/
+
+/*!********************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers/log.js ***!
+        \********************************************************************/
+
+/*!********************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/no-conflict.js ***!
+        \********************************************************************/
+
+/*!********************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/safe-string.js ***!
+        \********************************************************************/
+
+/*!********************************************************************!*\
+        !*** ./src/templates/default/registered_account_delete.handlebars ***!
+        \********************************************************************/
+
+/*!*********************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers/each.js ***!
+        \*********************************************************************/
+
+/*!*********************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers/with.js ***!
+        \*********************************************************************/
+
+/*!*********************************************************************!*\
+        !*** ./node_modules/underscore/modules/_createSizePropertyCheck.js ***!
+        \*********************************************************************/
+
+/*!*********************************************************************!*\
+        !*** ./node_modules/underscore/modules/underscore-array-methods.js ***!
+        \*********************************************************************/
+
+/*!**********************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/integrations/breadcrumbs.js ***!
+        \**********************************************************************/
+
+/*!**********************************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/integrations/inboundfilters.js ***!
+        \**********************************************************************/
+
+/*!**********************************************************************!*\
+        !*** ./node_modules/op-payment-account/src/js/op-payment-account.js ***!
+        \**********************************************************************/
+
+/*!**********************************************************************!*\
+        !*** ./node_modules/op-template-engine/src/js/op-template-engine.js ***!
+        \**********************************************************************/
+
+/*!***********************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/integrations/linkederrors.js ***!
+        \***********************************************************************/
+
+/*!***********************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers/lookup.js ***!
+        \***********************************************************************/
+
+/*!***********************************************************************!*\
+        !*** ./src/templates/standalone/registered_account_delete.handlebars ***!
+        \***********************************************************************/
+
+/*!************************************************************************!*\
+        !*** ./node_modules/@sentry/core/esm/integrations/functiontostring.js ***!
+        \************************************************************************/
+
+/*!************************************************************************!*\
+        !*** ./node_modules/underscore/modules/_createPredicateIndexFinder.js ***!
+        \************************************************************************/
+
+/*!*************************************************************************!*\
+        !*** ./node_modules/@sentry/browser/esm/integrations/globalhandlers.js ***!
+        \*************************************************************************/
+
+/*!**************************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/decorators/inline.js ***!
+        \**************************************************************************/
+
+/*!***************************************************************************!*\
+        !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+        \***************************************************************************/
+
+/*!****************************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/internal/wrapHelper.js ***!
+        \****************************************************************************/
+
+/*!******************************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/internal/proto-access.js ***!
+        \******************************************************************************/
+
+/*!*******************************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers/helper-missing.js ***!
+        \*******************************************************************************/
+
+/*!************************************************************************************!*\
+        !*** ./node_modules/op-payment-live-validation/src/js/services/message.service.js ***!
+        \************************************************************************************/
+
+/*!*************************************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/helpers/block-helper-missing.js ***!
+        \*************************************************************************************/
+
+/*!**************************************************************************************!*\
+        !*** ./node_modules/op-payment-live-validation/src/js/op-payment-live-validation.js ***!
+        \**************************************************************************************/
+
+/*!******************************************************************************************!*\
+        !*** ./node_modules/handlebars/dist/cjs/handlebars/internal/create-new-lookup-object.js ***!
+        \******************************************************************************************/
+
+/** @license React v0.20.2
+ * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
+ * react-dom.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
